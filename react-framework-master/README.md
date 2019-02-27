@@ -1,16 +1,8 @@
-# Full Stack Review Workshop
+## CRUD API ROUTES
 
-cd to react-framework
-
-npm install express
-
-npm start
-
-server should now be listening...
-
-create new terminal tab
-
- cd back to react-framework
-
- npm run react-dev
-
+| Endpoint              | Type   | Operation                 |
+|-----------------------|--------|---------------------------|
+| `/overview`           | GET    | Get all listings          |
+| `/overview/:listingId`| POST   | Add a listing             |
+| `/overview/:listingId`| DELETE | Delete a listing          |
+| `/overview/:listingId`| PUT    | Update a listing          |
