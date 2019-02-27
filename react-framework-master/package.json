@@ -1,0 +1,40 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server/index.js",
+    "seed": "node schema.js",
+    "test": "jest --verbose --coverage"
+  },
+  "author": "Beth Johnson",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^5.13.0",
+    "jest": "^24.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "webpack": "^2.2.1",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "Babel": "0.0.1",
+    "babel-cli": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.15.0",
+    "faker": "^4.1.0",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.4.9",
+    "mysql": "^2.16.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
+  }
+}
