@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import RestaurantInfo from './RestaurantInfo.jsx';
-import googleKey from '../../../api';
+// import googleKey from '../../../api';
 import style from '../../../style';
 import helpers from '../../../helpers';
 
@@ -111,7 +111,7 @@ class CompressedApp extends React.Component {
 
         {/*GOOGLE MAP API*/}
         <div style={style.googleMap}>
-          <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${rest.latitude},${rest.longitude}&zoom=15&size=288x144&maptype=roadmap&markers=color:0x2495BF|%7C${rest.latitude},${rest.longitude}&key=${googleKey}`}></img>
+          {/* <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${rest.latitude},${rest.longitude}&zoom=15&size=288x144&maptype=roadmap&markers=color:0x2495BF|%7C${rest.latitude},${rest.longitude}&key=${googleKey}`}></img> */}
           <div style={style.padTop}>
             {doodles[0]}
             <a href=' ' className="hover" style={newAddress} onMouseEnter={this.handleToggle}
