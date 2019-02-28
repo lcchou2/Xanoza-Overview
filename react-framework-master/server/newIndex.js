@@ -23,21 +23,8 @@ app.post('/overview', (req, res) => {
   })
 });
 
-// Retrieve all overview listings
-app.get('/overview', (req,res) =>{
-  db.getAll((err, data) =>{
-    if (err){
-      res.status(418).send(err)
-      return;
-    }
 
-    res.status(200).send(data)
-
-  })
-  }
-);
-
-// Retrieve a specific overview listing
+// Get a specific overview listing
 app.get('/overview/:listingId', (req,res) =>{
   db.returnListing(Number(req.params.listingId), function(err, data) {
     if (err) {
@@ -50,7 +37,7 @@ app.get('/overview/:listingId', (req,res) =>{
 );
 
 // Update a listing 
-app.post('/overview/:listingId', (req, res) => {
+app.put('/overview/:listingId', (req, res) => {
   db.updateOne(req.body,Number(req.params.listingId), (err) =>{
       if (err) {
           res.status(400).send(err)
@@ -61,7 +48,7 @@ app.post('/overview/:listingId', (req, res) => {
 
 // Delete a listing 
 app.delete('/overview/:listingId', (req, res) => {
-  db.deleteOne(req.body,Number(req.params.listingId), (err) =>{
+  db.deleteOne(Number(req.params.listingId), (err) =>{
       if (err) {
           res.status(400).send(err)
       }
