@@ -12,7 +12,7 @@
 
 `/api/overview/:listingId`
 
-##### Example
+##### Example on Res
 
 ```js
 {
@@ -61,7 +61,7 @@
 
 `/api/overview`
 
-##### Example
+##### Example on Req
 
 ```js
 {
@@ -109,7 +109,7 @@
 
 `/api/overview/:listingId`
 
-##### Example
+##### Example 
 
 ```js
 {
@@ -158,40 +158,18 @@
 
 `/api/overview/:listingId`
 
-##### Example
+##### Example on Req
+
 
 ```js
 {
-	id: Number,
-	name: String,
-	ratings_num: Number,
-	rating: Number,
-	description: String,
-	price_min: Number,
-	price_max: Number,
-	food_type: String,
-	tag_one: String,
-	tag_two: String,
-	tag_three: String,
-	cross_street: String,
-        neighborhood: String,
+
         hours: [{
           brunch_hrs: String,
 	  lunch_hrs: String,
 	  dinner_hrs: String
         }]
-	,
-	dining_style: String,
-	dress_code: String,
-	payment_options: String,
-	chef: String,
-	entertainment: String,
-	additional_info: String,
-	website: String,
-	phone_number: String,
-	longitude: Number,
-	latitude: Number,
-	street_address: String
+
 }
 ```
 
