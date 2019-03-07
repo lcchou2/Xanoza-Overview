@@ -20,17 +20,17 @@ const doodles = [
   <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" style={{ background: 'rgb(255, 255, 255)' }}><title>icon/ic_new_window</title><desc>Created with Sketch.</desc><defs></defs><g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="icon/ic_new_window"><g id="ic_new_window"><rect id="boundary" x="0" y="0" width="24" height="24"></rect><path d="M19.5,4 L14.5,4 C14.2238576,4 14,4.22385763 14,4.5 L14,5.5 C14,5.77614237 14.2238576,6 14.5,6 L16.59,6 L10.76,11.83 C10.6653437,11.9238833 10.6121008,12.0516812 10.6121008,12.185 C10.6121008,12.3183188 10.6653437,12.4461167 10.76,12.54 L11.47,13.25 C11.5638833,13.3446563 11.6916812,13.3978992 11.825,13.3978992 C11.9583188,13.3978992 12.0861167,13.3446563 12.18,13.25 L18,7.41 L18,9.5 C18,9.77614237 18.2238576,10 18.5,10 L19.5,10 C19.7761424,10 20,9.77614237 20,9.5 L20,4.5 C20,4.22385763 19.7761424,4 19.5,4 Z" id="Shape" fill="#333333" fillRule="nonzero"></path><path d="M19.5,14 L18.5,14 C18.2238576,14 18,14.2238576 18,14.5 L18,18 L6,18 L6,6 L9.5,6 C9.77614237,6 10,5.77614237 10,5.5 L10,4.5 C10,4.22385763 9.77614237,4 9.5,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,14.5 C20,14.2238576 19.7761424,14 19.5,14 Z" id="Shape" fill="#333333" fillRule="nonzero"></path></g></g></g></svg>,
   <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" style={{ background: 'rgb(255, 255, 255)' }}><title>icon/ic_phone</title><desc>Created with Sketch.</desc><defs></defs><g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="icon/ic_phone"><g id="ic_phone"><rect id="Rectangle-path" x="0" y="0" width="24" height="24"></rect><path d="M3.6078908,10.550251 C2.61923908,11.0680258 1.99972271,12.0918108 1.99971837,13.2078404 L1.99971837,15.6072816 C1.99971837,16.1595664 2.44743362,16.6072816 2.99971837,16.6072816 L6.3793488,16.6072816 C6.82186328,16.6072816 7.21175771,16.3164463 7.33787494,15.892282 C7.82877775,14.2412802 8.56739585,13.2739483 9.74971837,13.2739483 L10.3982265,13.2739469 L10.9997198,13.2739459 C11.9349601,13.2739449 11.9349601,13.2739449 12.2508894,13.273949 C13.457624,13.275362 14.2165836,14.245409 14.6845206,15.8821632 C14.8072329,16.3113873 15.1995808,16.6072842 15.6460041,16.6072816 L18.9997184,16.6072816 C19.5520031,16.6072816 19.9997184,16.1595664 19.9997184,15.6072816 L19.9997184,13.2078497 C19.9997184,12.09182 19.3802043,11.0680343 18.3915552,10.5502559 C15.911882,9.25160463 13.451313,8.60728164 10.9997184,8.60728164 C8.54812677,8.60728164 6.08756091,9.25160303 3.6078908,10.550251 Z" id="Shape" stroke="#333333" strokeWidth="2" transform="translate(10.999718, 12.607282) rotate(-135.000000) translate(-10.999718, -12.607282) "></path></g></g></g></svg>
 ];
+let id = 1;
+let path = window.location.pathname.split('/');
+let pathId = Number.parseInt(path[1], 10);
+if (Number.isNaN(pathId)) {
+  pathId = 1
+}
 
 class ExpandedApp extends React.Component {
   constructor(props) {
     super(props);
-    let id = 1;
-
-    const pathName = window.location.pathname.split('/');
-    const restaurantId = parseInt(pathName[1], 10);
-    if (!Number.isNaN(restaurantId)) {
-      id = restaurantId
-    }
+   
 
     this.state = {
       resId: id,
@@ -51,7 +51,8 @@ class ExpandedApp extends React.Component {
 
 
   componentDidMount() {
-    this.getRestaurantByObjectId();
+    console.log(window.location.pathname)
+    this.getRestaurantByObjectId(pathId);
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }

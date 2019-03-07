@@ -35,4 +35,4 @@ app.get('/overview/:restaurantId', function (req, res) {
 	});
 })
 
-app.use('/:id', express.static(path.join(__dirname, '../public')))
+app.use('/:id', express.static(path.join(__dirname, '../client/dist')))
