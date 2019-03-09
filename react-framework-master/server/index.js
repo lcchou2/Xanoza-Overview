@@ -1,9 +1,11 @@
+require('newrelic');
 const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
 const db = require('../database/index.js')
 const bodyParser = require('body-parser');
+
 
  
 // app.get('/products/:id', function (req, res, next) {
@@ -40,6 +42,18 @@ app.get('/overview/:resId',  (req, res)=> {
     }
 
     res.status(200).send(info)
+  })
+})
+
+app.post('/overview/ratings', (req,res)=>{
+  db.addRating(req.body, (err) => {
+    if (err) {
+      res.status(400)
+      return;
+    }
+
+    res.status(201).send(req.body)
+    
   })
 })
 
