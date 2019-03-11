@@ -12,14 +12,14 @@ scenarios:
   - flow:
     - get:
         url: "/overview/2"
-  # - flow:
-  #   - post:
-  #       url: '/overview/ratings'
-  #       json: 
-  #         res_id: "12312"
-  #         username: "larrychou"
-  #         ratings: 5
-  #         gender: "M"
+  - flow:
+    - post:
+        url: '/overview/ratings'
+        json: 
+          res_id: "12312"
+          username: "larrychou"
+          ratings: 5
+          gender: "M"
      
 
 

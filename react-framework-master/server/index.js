@@ -5,7 +5,8 @@ const port = 3000;
 const path = require('path');
 const db = require('../database/index.js')
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
+app.use(cors());
 
  
 // app.get('/products/:id', function (req, res, next) {
