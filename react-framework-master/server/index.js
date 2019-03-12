@@ -1,14 +1,13 @@
-require('newrelic');
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 80;
 const path = require('path');
 const db = require('../database/index.js')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 app.use(cors());
 
- 
+
 // app.get('/products/:id', function (req, res, next) {
 //   res.json({msg: 'This is CORS-enabled for all origins!'})
 // })
@@ -36,6 +35,14 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 // 	});
 // })
 
+app.get('/loaderio-64d7d7a06ca9d939e239730e1f9c3117.txt', (req,res) => {
+  res.sendFile('../client/dist/loaderio-64d7d7a06ca9d939e239730e1f9c3117.txt', ()=>{
+    console.log('sent')
+  })
+})
+
+
+
 app.get('/overview/:resId',  (req, res)=> {
   const id = parseInt(req.params.resId);
 	db.getResInfo( id, (err, info)=> {
@@ -59,7 +66,5 @@ app.post('/overview/ratings', (req,res)=>{
     
   })
 })
-
-
 
 app.use('/:id', express.static(path.join(__dirname, '../client/dist')))
