@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 app.use(cors());
 
- 
+
 // app.get('/products/:id', function (req, res, next) {
 //   res.json({msg: 'This is CORS-enabled for all origins!'})
 // })
@@ -33,6 +33,8 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 // 	});
 // })
 
+app.use('/:id', express.static(path.join(__dirname, '../client/dist')))
+
 app.get('/overview/:resId',  (req, res)=> {
   const id = parseInt(req.params.resId);
 	db.getResInfo( id, (err, info)=> {
@@ -57,6 +59,3 @@ app.post('/overview/ratings', (req,res)=>{
   })
 })
 
-
-
-app.use('/:id', express.static(path.join(__dirname, '../client/dist')))
