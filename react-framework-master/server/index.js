@@ -56,6 +56,18 @@ app.get('/overview/:resId',  (req, res)=> {
   })
 })
 
+app.get('/overview/ratings/:resId',  (req, res)=> {
+  const id = parseInt(req.params.resId);
+	db.getResRatings( id, (err, info)=> {
+    if (err) {
+      res.status(400)
+      return;
+    }
+
+    res.status(200).send(info)
+  })
+})
+
 app.post('/overview/ratings', (req,res)=>{
   db.addRating(req.body, (err) => {
     if (err) {
