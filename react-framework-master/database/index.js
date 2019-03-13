@@ -21,7 +21,7 @@ const getResInfo = (resId, cb) =>{
 }
 
 const getResRatings = (resId, cb) => {
-  const query = `SELECT * FROM ratings INNER JOIN listings ON listings.id = ratings.res_id WHERE ratings.res_id = ${resId};`;
+  const query = `SELECT listings.id, ratings.username, ratings.gender, ratings.ratings FROM ratings INNER JOIN listings ON listings.id = ratings.res_id WHERE ratings.res_id = ${resId};`;
   pool.query(query, (err, ratings) => {
     if (err) {
       cb(err);
