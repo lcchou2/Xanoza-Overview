@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const app = express();
 const port = 80;
@@ -46,6 +47,18 @@ app.get('/loaderio-64d7d7a06ca9d939e239730e1f9c3117.txt', (req,res) => {
 app.get('/overview/:resId',  (req, res)=> {
   const id = parseInt(req.params.resId);
 	db.getResInfo( id, (err, info)=> {
+    if (err) {
+      res.status(400)
+      return;
+    }
+
+    res.status(200).send(info)
+  })
+})
+
+app.get('/overview/ratings/:resId',  (req, res)=> {
+  const id = parseInt(req.params.resId);
+	db.getResRatings( id, (err, info)=> {
     if (err) {
       res.status(400)
       return;
