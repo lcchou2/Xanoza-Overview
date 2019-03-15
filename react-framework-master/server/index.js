@@ -42,8 +42,9 @@ app.get('/loaderio-64d7d7a06ca9d939e239730e1f9c3117.txt', (req,res) => {
   })
 })
 
-
-
+app.get('/loaderio-63e05c78a83130c2f6aaff6c4f155a09', (req,res) => {
+  res.send('loaderio-63e05c78a83130c2f6aaff6c4f155a09')
+})
 
 
 app.get('/overview/:resId',  (req, res)=> {
