@@ -21,7 +21,7 @@ npm install
 ### Starting Up the App
 
 ```sh
-npm run react-dev (creates bundle.js)
+npm run build (creates bundle.js)
 npm start (starts up app on localhost:3000)
 ```
 
